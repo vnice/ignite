@@ -50,6 +50,10 @@
             </list>
         </property>
 
+        <property name="memoryConfiguration">
+            <bean class="org.apache.ignite.configuration.MemoryConfiguration"/>
+        </property>
+
         <!-- Explicitly configure TCP discovery SPI to provide a list of initial nodes. -->
         <property name="discoverySpi">
             <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">

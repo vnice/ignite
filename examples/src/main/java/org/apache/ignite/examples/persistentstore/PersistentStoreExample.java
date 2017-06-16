@@ -44,7 +44,7 @@ import org.apache.ignite.examples.model.Organization;
  */
 public class PersistentStoreExample {
     /** */
-    private static final boolean UPDATE = true;
+    private static final boolean UPDATE = false;
 
     /**
      * @param args Program arguments, ignored.
