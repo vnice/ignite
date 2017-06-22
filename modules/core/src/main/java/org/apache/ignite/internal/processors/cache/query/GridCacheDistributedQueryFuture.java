@@ -120,7 +120,7 @@ public class GridCacheDistributedQueryFuture<K, V, R> extends GridCacheQueryFutu
                         cctx.io().send(node, req, cctx.ioPolicy());
                     }
                     catch (IgniteCheckedException e) {
-                        if (cctx.io().checkNodeLeft(node.id(), e)) {
+                        if (cctx.io().checkNodeLeft(node.id(), e, false)) {
                             if (log.isDebugEnabled())
                                 log.debug("Failed to send cancel request, node failed: " + node);
                         }

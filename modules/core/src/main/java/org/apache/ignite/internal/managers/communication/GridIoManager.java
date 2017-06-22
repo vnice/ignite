@@ -1571,15 +1571,16 @@ public class GridIoManager extends GridManagerAdapter<CommunicationSpi<Serializa
     /**
      * @param nodeId Node ID.
      * @param sndErr Send error.
+     * @param ping {@code True} if try ping node.
      * @return {@code True} if node left.
      * @throws IgniteClientDisconnectedCheckedException If ping failed.
      */
-    public boolean checkNodeLeft(UUID nodeId, IgniteCheckedException sndErr)
+    public boolean checkNodeLeft(UUID nodeId, IgniteCheckedException sndErr, boolean ping)
         throws IgniteClientDisconnectedCheckedException
     {
         return sndErr instanceof ClusterTopologyCheckedException ||
             ctx.discovery().node(nodeId) == null ||
-            !ctx.discovery().pingNode(nodeId);
+            (ping && !ctx.discovery().pingNode(nodeId));
     }
 
     /**

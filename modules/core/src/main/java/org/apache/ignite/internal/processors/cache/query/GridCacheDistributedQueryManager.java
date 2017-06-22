@@ -805,7 +805,7 @@ public class GridCacheDistributedQueryManager<K, V> extends GridCacheQueryManage
                     cctx.io().send(node, req, GridIoPolicy.QUERY_POOL);
                 }
                 catch (IgniteCheckedException e) {
-                    if (cctx.io().checkNodeLeft(node.id(), e)) {
+                    if (cctx.io().checkNodeLeft(node.id(), e, true)) {
                         fut.onNodeLeft(node.id());
 
                         if (fut.isDone())

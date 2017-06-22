@@ -1083,11 +1083,12 @@ public class GridCacheIoManager extends GridCacheSharedManagerAdapter {
      * @param nodeId Node ID.
      * @param sndErr Send error.
      * @return {@code True} if node left.
+     * @param ping {@code True} if try ping node.
      * @throws IgniteClientDisconnectedCheckedException If ping failed.
      */
-    public boolean checkNodeLeft(UUID nodeId, IgniteCheckedException sndErr)
+    public boolean checkNodeLeft(UUID nodeId, IgniteCheckedException sndErr, boolean ping)
         throws IgniteClientDisconnectedCheckedException {
-        return cctx.gridIO().checkNodeLeft(nodeId, sndErr);
+        return cctx.gridIO().checkNodeLeft(nodeId, sndErr, ping);
     }
 
     /**

@@ -1119,7 +1119,7 @@ public class GridDhtPartitionsExchangeFuture extends GridDhtTopologyFutureAdapte
                 cctx.io().send(node, m, SYSTEM_POOL);
             }
             catch (IgniteCheckedException e) {
-                if (cctx.io().checkNodeLeft(node.id(), e)) {
+                if (cctx.io().checkNodeLeft(node.id(), e, false)) {
                     if (log.isDebugEnabled())
                         log.debug("Failed to send partitions, node failed: " + node);
                 }
